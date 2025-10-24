@@ -6,301 +6,140 @@
   <title>SVV Exports & Imports Pvt LTD — Hotel Linen & Uniforms</title>
   <meta name="description" content="Quality Linen and uniform supplier — SVV Exports & Imports Pvt LTD" />
   <style>
-    :root{--mango:#ffbf47;--bg:#ffffff;--text:#222}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:var(--text);}
-    header{background:var(--mango);border-bottom:3px solid #f2d9b0;padding:12px 0}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:18px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo img{height:56px;width:auto;border-radius:8px;display:block}
-    nav{margin-left:auto;display:flex;gap:18px;align-items:center}
-    nav a{color:#111;text-decoration:none;font-weight:700;cursor:pointer}
-    nav a:hover{opacity:0.85}
-    .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 20px;text-align:center}
-    .hero h1{font-size:36px;margin:0 0 8px}
-    .hero p{margin:0 0 18px;color:#444}
-    .btn{display:inline-block;padding:12px 18px;border-radius:10px;background:#111;color:#fff;font-weight:700;text-decoration:none}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px;padding:0 20px}
-    .card{border:1px solid #eee;border-radius:10px;padding:12px;background:#fff}
-    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
-    .card h3{margin:10px 0 6px;font-size:16px}
-    .card p{margin:0;color:#666;font-size:14px}
-    section{padding:40px 0}
-    form{display:grid;gap:12px;max-width:760px}
-    input,textarea,select{padding:10px;border:1px solid #e6e6e6;border-radius:8px;font-size:15px}
-    footer{border-top:1px solid #f2d9b0;padding:18px;background:linear-gradient(0deg, rgba(255,191,71,0.03), rgba(255,191,71,0));text-align:center}
-    /* responsive */
-    @media(min-width:900px){.hero h1{font-size:44px}}
-    .hide{display:none}
-
-    /* Category banner styles */
-    .cat-banner {display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid #eee;border-bottom:1px solid rgba(0,0,0,0.06);background: #fff;}
-    .cat-banner::-webkit-scrollbar { height:8px; }
-    .cat-item {white-space:nowrap;flex:0 0 auto;padding:18px 30px;font-weight:800;font-family: 'Georgia', serif;cursor:pointer;color:#111;border-right:1px solid rgba(0,0,0,0.04);transition:background .18s, color .18s;font-size:16px;letter-spacing:0.6px;}
-    .cat-item:hover { background: rgba(0,0,0,0.03); }
-    .cat-item.active { background:#333; color:#fff; box-shadow: inset 0 -4px 0 rgba(0,0,0,0.06); }
-    @media(max-width:640px){ .cat-item { padding:14px 20px; font-size:15px; } }
+    :root {
+      --mango: #ffbf47;
+      --mango-dark: #e6aa3e;
+      --bg: #ffffff;
+      --text: #222;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin: 0; background: var(--bg); color: var(--text);
+    }
+    header {
+      background: var(--mango);
+      border-bottom: 3px solid #f2d9b0;
+      padding: 12px 0;
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .container {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 20px;
+      display: flex; align-items: center; gap: 18px;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { height: 56px; width: auto; border-radius: 8px; display: block; }
+    nav { margin-left: auto; display: flex; gap: 18px; align-items: center; }
+    nav a { color: #111; text-decoration: none; font-weight: 700; cursor: pointer; }
+    nav a:hover { opacity: 0.85; }
+    .hero {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 64px 20px; text-align: center;
+    }
+    .hero h1 { font-size: 36px; margin: 0 0 8px; }
+    .hero p { margin: 0 0 18px; color: #444; }
+    .btn {
+      display: inline-block; padding: 12px 18px;
+      border-radius: 10px; background: #111; color: #fff;
+      font-weight: 700; text-decoration: none;
+    }
+    footer {
+      border-top: 1px solid #f2d9b0;
+      padding: 18px; text-align: center;
+      background: linear-gradient(0deg, rgba(255,191,71,0.03), rgba(255,191,71,0));
+    }
+    /* Restyled Banner */
+    .cat-banner {
+      display: flex;
+      overflow-x: auto;
+      background: #fff;
+      border-bottom: 3px solid var(--mango);
+      position: sticky;
+      top: 80px;
+      z-index: 999;
+    }
+    .cat-item {
+      white-space: nowrap;
+      flex: 0 0 auto;
+      padding: 18px 30px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #111;
+      transition: all 0.25s ease;
+      border-right: 1px solid rgba(0,0,0,0.05);
+    }
+    .cat-item:hover {
+      background: var(--mango);
+      color: #fff;
+    }
+    .cat-item.active {
+      background: var(--mango);
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+    }
+    @media(max-width:640px){
+      .cat-item { padding: 14px 20px; font-size: 15px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <div class="logo">
-        <img src="logo.png" alt="SVV Exports and Imports Logo" id="site-logo">
+        <img src="logo.png" alt="SVV Exports and Imports Logo">
         <div style="line-height:1">
           <div style="font-weight:800">SVV Exports &amp; Imports Pvt LTD</div>
           <div style="font-size:12px;color:#111">Quality Linen and uniform supplier</div>
         </div>
       </div>
-
       <nav>
         <a href="#home" data-target="home">Home</a>
         <a href="#products" data-target="products">Products</a>
         <a href="#booking" data-target="booking">Booking / Order</a>
-        <a href="#about" data-target="about">About Us</a>
-        <a href="#contact" data-target="contact">Contact Us</a>
       </nav>
     </div>
   </header>
 
-  <!-- Category banner inserted under header -->
-  <div class="cat-banner" id="categoryBanner">
-    <div class="cat-item" data-href="#hotel-linen">Hotel Linen</div>
+  <!-- Restyled Category Banner -->
+  <div class="cat-banner">
     <div class="cat-item" data-href="#hotel-bed-sheet">Hotel Bed Sheet</div>
     <div class="cat-item" data-href="#hotel-duvet-cover">Hotel Duvet Cover</div>
     <div class="cat-item" data-href="#hotel-duvet">Hotel Duvet</div>
     <div class="cat-item" data-href="#hotel-towel">Hotel Towel</div>
     <div class="cat-item" data-href="#hotel-bed-runner">Hotel Bed Runner</div>
     <div class="cat-item" data-href="#hotel-pillow">Hotel Pillow</div>
-    <div class="cat-item" data-href="#about">About Us</div>
-    <div class="cat-item" data-href="#contact">Contact Us</div>
   </div>
 
   <main class="container" style="max-width:1200px">
-    <!-- Home -->
     <section id="home" class="page">
       <div class="hero">
         <h1>SVV Exports &amp; Imports Pvt LTD</h1>
         <p>Quality Linen and Uniform Supplier</p>
         <a class="btn" onclick="navigateTo('products')">Explore Products</a>
       </div>
-
-      <div style="padding:0 20px 40px">
-        <h2 style="text-align:center">Popular categories</h2>
-        <div class="grid">
-          <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Bed+Linen" alt="Bed Linen"><h3>Bed Linen</h3><p>Sheets, pillowcases, duvet covers.</p></div>
-          <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Towels" alt="Towels"><h3>Towels</h3><p>Bath, hand and pool towels.</p></div>
-          <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Uniforms" alt="Uniforms"><h3>Uniforms</h3><p>Kitchen, housekeeping, front desk.</p></div>
-          <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Custom+Orders" alt="Custom Orders"><h3>Custom Orders</h3><p>Branding, embroidery, special sizes.</p></div>
-        </div>
-      </div>
     </section>
-
-    <!-- Products -->
-    <section id="products" class="page hide">
-      <h2>Products</h2>
-      <p>Select a product to include in your enquiry.</p>
-      <div class="grid" id="product-grid"></div>
-    </section>
-
-    <!-- Booking -->
-    <section id="booking" class="page hide">
-      <h2>Booking / Order Form</h2>
-      <p>Fill this form and click "Create Enquiry Email" to open your email client with the details.</p>
-      <form id="booking-form" onsubmit="handleBookingSubmit(event)">
-        <input required name="company" placeholder="Company / Hotel name">
-        <input required name="contact" placeholder="Contact person">
-        <input required type="email" name="email" placeholder="Email">
-        <input name="phone" placeholder="Phone number">
-        <select name="product" id="booking-product">
-          <option value="Bed Linen">Bed Linen</option>
-          <option value="Towels">Towels</option>
-          <option value="Uniforms">Uniforms</option>
-          <option value="Custom">Custom Orders</option>
-        </select>
-        <textarea name="details" rows="5" placeholder="Details: quantity, sizes, delivery date..."></textarea>
-        <div style="display:flex;gap:12px">
-          <button class="btn" type="submit">Create Enquiry Email</button>
-          <button type="button" onclick="saveDraft()" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff">Save draft (local)</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- Category sections (on-page) -->
-    <section id="hotel-linen" class="page hide">
-      <h2>Hotel Linen</h2>
-      <p>Products and info for hotel linen.</p>
-      <div class="grid">
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Hotel+Linen+1"><h3>Hotel Linen Item 1</h3></div>
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Hotel+Linen+2"><h3>Hotel Linen Item 2</h3></div>
-      </div>
-    </section>
-
-    <section id="hotel-bed-sheet" class="page hide">
-      <h2>Hotel Bed Sheet</h2>
-      <p>Bed sheet options, thread count, sizes.</p>
-      <div class="grid">
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Bed+Sheet+1"><h3>Bed Sheet - 200 TC</h3></div>
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Bed+Sheet+2"><h3>Bed Sheet - 300 TC</h3></div>
-      </div>
-    </section>
-
-    <section id="hotel-duvet-cover" class="page hide">
-      <h2>Hotel Duvet Cover</h2>
-      <div class="grid">
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Duvet+Cover+1"><h3>Duvet Cover - White</h3></div>
-      </div>
-    </section>
-
-    <section id="hotel-duvet" class="page hide">
-      <h2>Hotel Duvet</h2>
-      <p>Duvet options here.</p>
-    </section>
-
-    <section id="hotel-towel" class="page hide">
-      <h2>Hotel Towel</h2>
-      <div class="grid">
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Towel+1"><h3>Bath Towel</h3></div>
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Towel+2"><h3>Hand Towel</h3></div>
-      </div>
-    </section>
-
-    <section id="hotel-bed-runner" class="page hide">
-      <h2>Hotel Bed Runner</h2>
-      <p>Bed runners and styling options.</p>
-    </section>
-
-    <section id="hotel-pillow" class="page hide">
-      <h2>Hotel Pillow</h2>
-      <p>Pillows and pillow protectors.</p>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="page hide">
-      <h2>About SVV Exports &amp; Imports Pvt LTD</h2>
-      <p>Quality Linen and uniform supplier for hotels and hospitality. We focus on durable fabrics, timely delivery and competitive pricing.</p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="page hide">
-      <h2>Contact Us</h2>
-      <p>Use the quick enquiry below, or use the booking form for full orders.</p>
-      <form id="contact-form" onsubmit="handleContactSubmit(event)">
-        <input required name="name" placeholder="Your name">
-        <input required type="email" name="email" placeholder="Your email">
-        <input name="subject" placeholder="Subject">
-        <textarea name="message" rows="4" placeholder="Message"></textarea>
-        <div style="display:flex;gap:12px">
-          <button class="btn" type="submit">Create Enquiry Email</button>
-          <button type="reset" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff">Reset</button>
-        </div>
-      </form>
-    </section>
-
   </main>
 
   <footer>
-    <div style="max-width:1100px;margin:0 auto;padding:12px 20px;text-align:center">
-      © SVV Exports &amp; Imports Pvt LTD — Quality Linen and uniform supplier
-    </div>
+    © SVV Exports &amp; Imports Pvt LTD — Quality Linen and uniform supplier
   </footer>
 
   <script>
-    // SPA navigation (hide/show sections)
-    const pages = ['home','products','booking','hotel-linen','hotel-bed-sheet','hotel-duvet-cover','hotel-duvet','hotel-towel','hotel-bed-runner','hotel-pillow','about','contact'];
-    function showPage(id){
-      pages.forEach(p=>{
-        const el = document.getElementById(p);
-        if(!el) return;
-        el.classList.toggle('hide', p !== id);
-      });
-      if(location.hash.replace('#','') !== id) location.hash = id;
-      window.scrollTo({top:0,behavior:'smooth'});
-      // highlight category banner if item matches
-      const bannerItems = document.querySelectorAll('.cat-item');
-      bannerItems.forEach(b=>{
-        if(b.dataset.href === '#'+id) b.classList.add('active'); else b.classList.remove('active');
-      });
-    }
-    function navigateTo(id){ showPage(id); }
-
-    // attach nav links
-    document.querySelectorAll('nav a').forEach(a=>{
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        const id = this.dataset.target || (this.getAttribute('href')||'').replace('#','');
-        if(id) showPage(id);
+    // Smooth SPA navigation for banner
+    const catItems = document.querySelectorAll('.cat-item');
+    catItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const href = item.dataset.href;
+        if (href && document.querySelector(href)) {
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+          catItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+        }
       });
     });
-
-    // on load, show section from hash or home
-    window.addEventListener('load', ()=>{
-      const h = (location.hash||'#home').replace('#','');
-      renderProducts();
-      showPage(pages.includes(h) ? h : 'home');
-    });
-
-    // product placeholders
-    const PRODUCTS = [
-      {id:1,title:'Premium Bed Sheet Set',desc:'200 Tc cotton blend. Placeholder info.',img:'https://via.placeholder.com/600x400.png?text=Bed+Sheet'},
-      {id:2,title:'Luxury Towels (Set of 6)',desc:'Soft, absorbent. Placeholder info.',img:'https://via.placeholder.com/600x400.png?text=Towels'},
-      {id:3,title:'Chef Uniform (2-pc)',desc:'Durable, stain resistant.',img:'https://via.placeholder.com/600x400.png?text=Uniform'},
-      {id:4,title:'Housekeeping Kit',desc:'Comfortable and durable items.',img:'https://via.placeholder.com/600x400.png?text=Housekeeping'}
-    ];
-    function renderProducts(){
-      const grid = document.getElementById('product-grid');
-      if(!grid) return;
-      grid.innerHTML = '';
-      PRODUCTS.forEach(p=>{
-        const card = document.createElement('div'); card.className='card';
-        card.innerHTML = `<img src="${p.img}" alt="${p.title}"><h3>${p.title}</h3><p>${p.desc}</p><div style="margin-top:8px;display:flex;gap:8px"><button class="btn" onclick="addToEnquiry(${p.id})">Add to Enquiry</button><button style="padding:8px 10px;border-radius:8px;border:1px solid #eee;background:#fff" onclick="viewDetails(${p.id})">View</button></div>`;
-        grid.appendChild(card);
-      });
-    }
-    function addToEnquiry(id){ const p = PRODUCTS.find(x=>x.id===id); if(!p) return; const sel = document.getElementById('booking-product'); if(sel){ sel.value = p.title; } navigateTo('booking'); }
-    function viewDetails(id){ const p = PRODUCTS.find(x=>x.id===id); if(!p) return; alert(p.title + "\n\n" + p.desc + "\n\n(Images are placeholders)"); }
-
-    // mailto helpers
-    function mailtoLink(to,subject,body){ return `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; }
-
-    function handleBookingSubmit(e){
-      e.preventDefault();
-      const f = e.target; const data = new FormData(f); const map = Object.fromEntries(data.entries());
-      const body = `Company: ${map.company}\nContact: ${map.contact}\nEmail: ${map.email}\nPhone: ${map.phone}\nProduct: ${map.product}\nDetails:\n${map.details}`;
-      const to = 'info@svveximp-tech';
-      window.location.href = mailtoLink(to, 'Booking enquiry from website', body);
-    }
-    function handleContactSubmit(e){
-      e.preventDefault();
-      const f = e.target; const d = new FormData(f); const map = Object.fromEntries(d.entries());
-      const body = `From: ${map.name}\nEmail: ${map.email}\nSubject: ${map.subject}\n\n${map.message}`;
-      window.location.href = mailtoLink('info@svveximp-tech', 'Website enquiry', body);
-    }
-    function saveDraft(){ const f = document.getElementById('booking-form'); if(!f) return; const d = new FormData(f); const map = Object.fromEntries(d.entries()); localStorage.setItem('svv_booking_draft', JSON.stringify(map)); alert('Draft saved locally in your browser.'); }
-
-    // Category banner behavior
-    (function(){
-      const items = document.querySelectorAll('.cat-item');
-      function clearActive(){ items.forEach(i=>i.classList.remove('active')); }
-      function setActive(el){ clearActive(); el.classList.add('active'); el.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'}); }
-      items.forEach(it=>{
-        it.addEventListener('click', ()=>{
-          const href = it.dataset.href;
-          if(!href) return;
-          if(href.startsWith('#')){
-            const id = href.replace('#','');
-            if(typeof showPage === 'function') showPage(id); else { const target = document.getElementById(id); if(target) target.scrollIntoView({behavior:'smooth', block:'start'}); }
-            setActive(it);
-          } else { window.location.href = href; }
-        });
-      });
-      window.addEventListener('load', ()=>{
-        const h = (location.hash||'').replace('#','');
-        if(!h) return;
-        const match = Array.from(items).find(it => it.dataset.href === ('#'+h));
-        if(match) setActive(match);
-      });
-    })();
   </script>
 </body>
 </html>
