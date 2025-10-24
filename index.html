@@ -11,8 +11,6 @@
       --mango-dark: #e6aa3e;
       --bg: #ffffff;
       --text: #222;
-      --muted: #666;
-      --card-bg: #fffaf2;
     }
     * { box-sizing: border-box; }
     body {
@@ -41,7 +39,7 @@
       padding: 64px 20px; text-align: center;
     }
     .hero h1 { font-size: 36px; margin: 0 0 8px; }
-    .hero p { margin: 0 0 18px; color: var(--muted); }
+    .hero p { margin: 0 0 18px; color: #444; }
     .btn {
       display: inline-block; padding: 12px 18px;
       border-radius: 10px; background: #111; color: #fff;
@@ -72,11 +70,19 @@
       transition: all 0.25s ease;
       border-right: 1px solid rgba(0,0,0,0.05);
     }
-    .cat-item:hover { background: var(--mango); color: #fff; }
-    .cat-item.active {
-      background: var(--mango); color: #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.1); transform: translateY(-1px);
+    .cat-item:hover {
+      background: var(--mango);
+      color: #fff;
     }
-    @media(max-width:640px){ .cat-item { padding: 14px 20px; font-size: 15px; } }
+    .cat-item.active {
+      background: var(--mango);
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+    }
+    @media(max-width:640px){
+      .cat-item { padding: 14px 20px; font-size: 15px; }
+    }
 
     /* Content layout */
     main.container { max-width: 1200px; padding-bottom: 60px; }
@@ -86,11 +92,6 @@
     section{ padding:40px 0; }
     form{ display:grid; gap:12px; max-width:760px; }
     input, textarea, select { padding:10px; border:1px solid #e6e6e6; border-radius:8px; font-size:15px; }
-
-    /* About / Contact two-column layout */
-    .two-col { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; }
-    .contact-card { background: var(--card-bg); padding:18px; border-radius:10px; border:1px solid #f0e6d0; }
-    @media(max-width:900px){ .two-col { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -100,7 +101,7 @@
         <img src="logo.png" alt="SVV Exports and Imports Logo">
         <div style="line-height:1">
           <div style="font-weight:800">SVV Exports &amp; Imports Pvt LTD</div>
-          <div style="font-size:12px;color:var(--muted)">Quality Linen and uniform supplier</div>
+          <div style="font-size:12px;color:#111">Quality Linen and uniform supplier</div>
         </div>
       </div>
       <nav>
@@ -199,61 +200,31 @@
 
     <section id="about" class="page hide">
       <h2>About Us</h2>
-      <div class="two-col">
-        <div>
-          <p>SVV Exports &amp; Imports Pvt LTD is a trusted supplier of hotel linen and uniforms. We focus on quality fabrics, reliable delivery and custom branding for hospitality businesses.</p>
-          <ul>
-            <li>Quality-controlled fabric and stitching</li>
-            <li>Custom branding and embroidery</li>
-            <li>Flexible batch sizes</li>
-          </ul>
-        </div>
-        <div class="contact-card">
-          <h3>Contact Details</h3>
-          <p><strong>Director:</strong> Vamsi Krishna</p>
-          <p><strong>Mobile number:</strong> +91 8296517502</p>
-          <p><strong>Email:</strong> <a href="mailto:svveximp@gmail.com">svveximp@gmail.com</a></p>
-        </div>
-      </div>
+      <p><strong>Director:</strong> Vamsi Krishna</p>
+      <p><strong>Mobile number:</strong> +91 8296517502</p>
+      <p><strong>Email:</strong> <a href="mailto:svveximp@gmail.com">svveximp@gmail.com</a></p>
     </section>
 
     <section id="contact" class="page hide">
       <h2>Contact Us / Enquiry</h2>
-      <div class="two-col">
-        <div class="contact-card">
-          <h3>Get in touch</h3>
-          <p>Use this form to send us an enquiry — it will open your email client addressed to <strong>svveximp@gmail.com</strong>.</p>
-          <p><strong>Phone:</strong> +91 8296517502</p>
-          <p><strong>Email:</strong> <a href="mailto:svveximp@gmail.com">svveximp@gmail.com</a></p>
+      <p>Use the form below to send an enquiry. We'll receive it at <strong>svveximp@gmail.com</strong>.</p>
+      <form id="contact-form" onsubmit="handleContactSubmit(event)">
+        <input required name="name" placeholder="Your name">
+        <input required type="email" name="email" placeholder="Your email">
+        <input name="phone" placeholder="Phone number">
+        <input name="subject" placeholder="Subject">
+        <textarea name="message" rows="4" placeholder="Message"></textarea>
+        <div style="display:flex;gap:12px">
+          <button class="btn" type="submit">Send Enquiry</button>
+          <button type="reset" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff">Reset</button>
         </div>
-
-        <div>
-          <form id="contact-form" onsubmit="handleContactSubmit(event)">
-            <input required name="name" placeholder="Your name">
-            <input required type="email" name="email" placeholder="Your email">
-            <input name="phone" placeholder="Phone number">
-            <input name="subject" placeholder="Subject">
-            <textarea name="message" rows="4" placeholder="Message"></textarea>
-            <div style="display:flex;gap:12px;margin-top:8px">
-              <button class="btn" type="submit">Send Enquiry</button>
-              <button type="reset" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff">Reset</button>
-            </div>
-          </form>
-        </div>
-      </div>
+      </form>
     </section>
 
   </main>
 
   <footer>
-    <div style="max-width:1100px;margin:0 auto;padding:12px 20px;text-align:center">
-      <div style="margin-bottom:6px">© SVV Exports &amp; Imports Pvt LTD — Quality Linen and uniform supplier</div>
-      <div style="font-size:14px;color:var(--muted)">
-        <strong>Director:</strong> Vamsi Krishna &nbsp; | &nbsp;
-        <strong>Phone:</strong> +91 8296517502 &nbsp; | &nbsp;
-        <strong>Email:</strong> <a href="mailto:svveximp@gmail.com">svveximp@gmail.com</a>
-      </div>
-    </div>
+    © SVV Exports &amp; Imports Pvt LTD — Quality Linen and uniform supplier
   </footer>
 
   <script>
@@ -324,6 +295,25 @@
       window.location.href = mailtoLink('svveximp@gmail.com', 'Website enquiry', body);
     }
     function saveDraft(){ const f = document.getElementById('booking-form'); if(!f) return; const d = new FormData(f); const map = Object.fromEntries(d.entries()); localStorage.setItem('svv_booking_draft', JSON.stringify(map)); alert('Draft saved locally in your browser.'); }
+    
+    // banner behavior
+    (function(){
+      const items = document.querySelectorAll('.cat-item');
+      items.forEach(it=>{
+        it.addEventListener('click', ()=>{
+          const href = it.dataset.href;
+          if(!href) return;
+          const id = href.replace('#','');
+          if(document.getElementById(id)){
+            showPage(id);
+            items.forEach(i=>i.classList.remove('active'));
+            it.classList.add('active');
+          } else {
+            // no target, do nothing
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
