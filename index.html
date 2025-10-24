@@ -50,7 +50,7 @@
       padding: 18px; text-align: center;
       background: linear-gradient(0deg, rgba(255,191,71,0.03), rgba(255,191,71,0));
     }
-    /* Banner */
+    /* Restyled Banner */
     .cat-banner {
       display: flex;
       overflow-x: auto;
@@ -83,15 +83,6 @@
     @media(max-width:640px){
       .cat-item { padding: 14px 20px; font-size: 15px; }
     }
-
-    /* Content layout */
-    main.container { max-width: 1200px; padding-bottom: 60px; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:18px; margin-top:18px; padding:0 20px; }
-    .card { border:1px solid #eee; border-radius:10px; padding:12px; background:#fff; }
-    .card img{ width:100%; height:160px; object-fit:cover; border-radius:8px; }
-    section{ padding:40px 0; }
-    form{ display:grid; gap:12px; max-width:760px; }
-    input, textarea, select { padding:10px; border:1px solid #e6e6e6; border-radius:8px; font-size:15px; }
   </style>
 </head>
 <body>
@@ -108,12 +99,11 @@
         <a href="#home" data-target="home">Home</a>
         <a href="#products" data-target="products">Products</a>
         <a href="#booking" data-target="booking">Booking / Order</a>
-        <a href="#about" data-target="about">About Us</a>
-        <a href="#contact" data-target="contact">Contact Us</a>
       </nav>
     </div>
   </header>
 
+  <!-- Restyled Category Banner -->
   <div class="cat-banner">
     <div class="cat-item" data-href="#hotel-bed-sheet">Hotel Bed Sheet</div>
     <div class="cat-item" data-href="#hotel-duvet-cover">Hotel Duvet Cover</div>
@@ -123,7 +113,7 @@
     <div class="cat-item" data-href="#hotel-pillow">Hotel Pillow</div>
   </div>
 
-  <main class="container">
+  <main class="container" style="max-width:1200px">
     <section id="home" class="page">
       <div class="hero">
         <h1>SVV Exports &amp; Imports Pvt LTD</h1>
@@ -131,96 +121,6 @@
         <a class="btn" onclick="navigateTo('products')">Explore Products</a>
       </div>
     </section>
-
-    <section id="products" class="page hide">
-      <h2>Products</h2>
-      <p>Select a product to include in your enquiry.</p>
-      <div class="grid" id="product-grid"></div>
-    </section>
-
-    <section id="booking" class="page hide">
-      <h2>Booking / Order Form</h2>
-      <p>Fill this form and click "Create Enquiry Email" to open your email client with the details.</p>
-      <form id="booking-form" onsubmit="handleBookingSubmit(event)">
-        <input required name="company" placeholder="Company / Hotel name">
-        <input required name="contact" placeholder="Contact person">
-        <input required type="email" name="email" placeholder="Email">
-        <input name="phone" placeholder="Phone number">
-        <select name="product" id="booking-product">
-          <option value="Bed Linen">Bed Linen</option>
-          <option value="Towels">Towels</option>
-          <option value="Uniforms">Uniforms</option>
-          <option value="Custom">Custom Orders</option>
-        </select>
-        <textarea name="details" rows="5" placeholder="Details: quantity, sizes, delivery date..."></textarea>
-        <div style="display:flex;gap:12px">
-          <button class="btn" type="submit">Create Enquiry Email</button>
-          <button type="button" onclick="saveDraft()" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff">Save draft (local)</button>
-        </div>
-      </form>
-    </section>
-
-    <section id="hotel-bed-sheet" class="page hide">
-      <h2>Hotel Bed Sheet</h2>
-      <div class="grid">
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Bed+Sheet+1"><h3>Bed Sheet - 200 TC</h3></div>
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Bed+Sheet+2"><h3>Bed Sheet - 300 TC</h3></div>
-      </div>
-    </section>
-
-    <section id="hotel-duvet-cover" class="page hide">
-      <h2>Hotel Duvet Cover</h2>
-      <div class="grid">
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Duvet+Cover+1"><h3>Duvet Cover</h3></div>
-      </div>
-    </section>
-
-    <section id="hotel-duvet" class="page hide">
-      <h2>Hotel Duvet</h2>
-      <p>Duvet options here.</p>
-    </section>
-
-    <section id="hotel-towel" class="page hide">
-      <h2>Hotel Towel</h2>
-      <div class="grid">
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Towel+1"><h3>Bath Towel</h3></div>
-        <div class="card"><img src="https://via.placeholder.com/600x400.png?text=Towel+2"><h3>Hand Towel</h3></div>
-      </div>
-    </section>
-
-    <section id="hotel-bed-runner" class="page hide">
-      <h2>Hotel Bed Runner</h2>
-      <p>Bed runners and styling options.</p>
-    </section>
-
-    <section id="hotel-pillow" class="page hide">
-      <h2>Hotel Pillow</h2>
-      <p>Pillows and pillow protectors.</p>
-    </section>
-
-    <section id="about" class="page hide">
-      <h2>About Us</h2>
-      <p><strong>Director:</strong> Vamsi Krishna</p>
-      <p><strong>Mobile number:</strong> +91 8296517502</p>
-      <p><strong>Email:</strong> <a href="mailto:svveximp@gmail.com">svveximp@gmail.com</a></p>
-    </section>
-
-    <section id="contact" class="page hide">
-      <h2>Contact Us / Enquiry</h2>
-      <p>Use the form below to send an enquiry. We'll receive it at <strong>svveximp@gmail.com</strong>.</p>
-      <form id="contact-form" onsubmit="handleContactSubmit(event)">
-        <input required name="name" placeholder="Your name">
-        <input required type="email" name="email" placeholder="Your email">
-        <input name="phone" placeholder="Phone number">
-        <input name="subject" placeholder="Subject">
-        <textarea name="message" rows="4" placeholder="Message"></textarea>
-        <div style="display:flex;gap:12px">
-          <button class="btn" type="submit">Send Enquiry</button>
-          <button type="reset" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff">Reset</button>
-        </div>
-      </form>
-    </section>
-
   </main>
 
   <footer>
@@ -228,92 +128,18 @@
   </footer>
 
   <script>
-    const pages = ['home','products','booking','hotel-bed-sheet','hotel-duvet-cover','hotel-duvet','hotel-towel','hotel-bed-runner','hotel-pillow','about','contact'];
-
-    function showPage(id){
-      pages.forEach(p=>{
-        const el = document.getElementById(p);
-        if(!el) return;
-        el.classList.toggle('hide', p !== id);
-      });
-      if(location.hash.replace('#','') !== id) location.hash = id;
-      window.scrollTo({top:0,behavior:'smooth'});
-      // highlight cat if exists
-      document.querySelectorAll('.cat-item').forEach(b=>{
-        b.classList.toggle('active', b.dataset.href === '#'+id);
-      });
-    }
-    function navigateTo(id){ showPage(id); }
-
-    // nav links
-    document.querySelectorAll('nav a').forEach(a=>{
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        const id = this.dataset.target || (this.getAttribute('href')||'').replace('#','');
-        if(id) showPage(id);
+    // Smooth SPA navigation for banner
+    const catItems = document.querySelectorAll('.cat-item');
+    catItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const href = item.dataset.href;
+        if (href && document.querySelector(href)) {
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+          catItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+        }
       });
     });
-
-    window.addEventListener('load', ()=>{
-      const h = (location.hash||'#home').replace('#','');
-      renderProducts();
-      showPage(pages.includes(h) ? h : 'home');
-    });
-
-    const PRODUCTS = [
-      {id:1,title:'Premium Bed Sheet Set',desc:'200 Tc cotton blend. Placeholder info.',img:'https://via.placeholder.com/600x400.png?text=Bed+Sheet'},
-      {id:2,title:'Luxury Towels (Set of 6)',desc:'Soft, absorbent. Placeholder info.',img:'https://via.placeholder.com/600x400.png?text=Towels'},
-      {id:3,title:'Chef Uniform (2-pc)',desc:'Durable, stain resistant.',img:'https://via.placeholder.com/600x400.png?text=Uniform'},
-      {id:4,title:'Housekeeping Kit',desc:'Comfortable and durable items.',img:'https://via.placeholder.com/600x400.png?text=Housekeeping'}
-    ];
-    function renderProducts(){
-      const grid = document.getElementById('product-grid');
-      if(!grid) return;
-      grid.innerHTML = '';
-      PRODUCTS.forEach(p=>{
-        const card = document.createElement('div'); card.className='card';
-        card.innerHTML = `<img src="${p.img}" alt="${p.title}"><h3>${p.title}</h3><p>${p.desc}</p><div style="margin-top:8px;display:flex;gap:8px"><button class="btn" onclick="addToEnquiry(${p.id})">Add to Enquiry</button><button style="padding:8px 10px;border-radius:8px;border:1px solid #eee;background:#fff" onclick="viewDetails(${p.id})">View</button></div>`;
-        grid.appendChild(card);
-      });
-    }
-    function addToEnquiry(id){ const p = PRODUCTS.find(x=>x.id===id); if(!p) return; const sel = document.getElementById('booking-product'); if(sel){ sel.value = p.title; } navigateTo('booking'); }
-    function viewDetails(id){ const p = PRODUCTS.find(x=>x.id===id); if(!p) return; alert(p.title + "\n\n" + p.desc + "\n\n(Images are placeholders)"); }
-
-    function mailtoLink(to,subject,body){ return `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; }
-
-    function handleBookingSubmit(e){
-      e.preventDefault();
-      const f = e.target; const data = new FormData(f); const map = Object.fromEntries(data.entries());
-      const body = `Company: ${map.company}\nContact: ${map.contact}\nEmail: ${map.email}\nPhone: ${map.phone}\nProduct: ${map.product}\nDetails:\n${map.details}`;
-      const to = 'svveximp@gmail.com';
-      window.location.href = mailtoLink(to, 'Booking enquiry from website', body);
-    }
-    function handleContactSubmit(e){
-      e.preventDefault();
-      const f = e.target; const d = new FormData(f); const map = Object.fromEntries(d.entries());
-      const body = `From: ${map.name}\nEmail: ${map.email}\nPhone: ${map.phone}\nSubject: ${map.subject}\n\n${map.message}`;
-      window.location.href = mailtoLink('svveximp@gmail.com', 'Website enquiry', body);
-    }
-    function saveDraft(){ const f = document.getElementById('booking-form'); if(!f) return; const d = new FormData(f); const map = Object.fromEntries(d.entries()); localStorage.setItem('svv_booking_draft', JSON.stringify(map)); alert('Draft saved locally in your browser.'); }
-    
-    // banner behavior
-    (function(){
-      const items = document.querySelectorAll('.cat-item');
-      items.forEach(it=>{
-        it.addEventListener('click', ()=>{
-          const href = it.dataset.href;
-          if(!href) return;
-          const id = href.replace('#','');
-          if(document.getElementById(id)){
-            showPage(id);
-            items.forEach(i=>i.classList.remove('active'));
-            it.classList.add('active');
-          } else {
-            // no target, do nothing
-          }
-        });
-      });
-    })();
   </script>
 </body>
 </html>
