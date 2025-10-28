@@ -13,6 +13,17 @@
     img { max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     footer { background: #fff5cc; text-align: center; padding: 15px; font-size: 14px; margin-top: 20px; }
   </style>
+
+<style>
+/* Simple lightbox styles */
+.lb-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .2s ease;z-index:2000}
+.lb-overlay.show{opacity:1;visibility:visible}
+.lb-overlay img{max-width:90%;max-height:85%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:28px;font-weight:700;cursor:pointer;z-index:2010}
+.lb-caption{position:absolute;bottom:30px;color:#fff;max-width:90%;text-align:center;font-size:14px;z-index:2010}
+.lb-thumb{cursor:pointer}
+</style>
+
 </head>
 <body>
   <header>
@@ -25,9 +36,57 @@
   </header>
   <main>
     <h2>Hotel Pillow</h2>
-    <img src="assets/images/hotel-pillow.jpg" alt="Hotel Pillow">
+    <a class="lightbox-link" href="assets/images/hotel-pillow.jpg" data-caption=""><img src="assets/images/hotel-pillow.jpg" alt=""></a>
     <p>Explore our finest collection of hotel pillow designed for comfort, quality, and elegance in every hospitality setting.</p>
   </main>
   <footer>© SVV Exports & Imports Pvt LTD — Quality Linen and Uniform Supplier</footer>
+
+<!-- Lightbox overlay -->
+<div class="lb-overlay" id="lightboxOverlay" role="dialog" aria-hidden="true">
+  <div class="lb-close" id="lbClose" aria-label="Close">×</div>
+  <img id="lbImage" src="" alt="Preview">
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script>
+// Simple vanilla JS lightbox
+(function(){
+  function openLightbox(src, caption){
+    var overlay = document.getElementById('lightboxOverlay');
+    var img = document.getElementById('lbImage');
+    var cap = document.getElementById('lbCaption');
+    img.src = src; cap.textContent = caption || '';
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    var overlay = document.getElementById('lightboxOverlay');
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden','true');
+    document.getElementById('lbImage').src = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    // handle clicks on links with class 'lightbox-link' or images inside them
+    if(t.closest && t.closest('.lightbox-link')){
+      e.preventDefault();
+      var link = t.closest('.lightbox-link');
+      var src = link.getAttribute('href') || link.dataset.src || '';
+      var cap = link.getAttribute('data-caption') || link.dataset.caption || '';
+      if(src) openLightbox(src, cap);
+    }
+    if(t.id === 'lbClose' || t.id === 'lightboxOverlay') {
+      closeLightbox();
+    }
+  });
+  // close on Escape
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+
 </body>
 </html>
