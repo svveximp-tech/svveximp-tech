@@ -1,62 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Hotel Towel — SVV Exports</title>
-
-<style>
-:root{--mango:#ffbf47;--bg:#ffffff;--text:#222}
-*{box-sizing:border-box}
-body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;background:var(--bg);color:var(--text)}
-.header{background:var(--mango);border-bottom:3px solid #f2d9b0;padding:12px 0;position:sticky;top:0;z-index:1000}
-.container{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:18px}
-.logo{display:flex;align-items:center;gap:12px}
-.logo img{height:56px;width:auto;border-radius:8px;display:block}
-nav{margin-left:auto;display:flex;gap:18px;align-items:center}
-nav a{color:#111;text-decoration:none;font-weight:700}
-.cat-banner{display:flex;overflow-x:auto;background:#fff;border-bottom:3px solid var(--mango);}
-.cat-item{white-space:nowrap;flex:0 0 auto;padding:18px 30px;font-weight:700;cursor:pointer;color:#111;border-right:1px solid rgba(0,0,0,0.04)}
-.cat-item:hover{background:var(--mango);color:#fff}
-.active{background:var(--mango);color:#fff;box-shadow:0 3px 8px rgba(0,0,0,0.1);transform:translateY(-1px)}
-main{max-width:1100px;margin:24px auto;padding:0 20px}
-footer{border-top:1px solid #f2d9b0;padding:18px;text-align:center;background:linear-gradient(0deg, rgba(255,191,71,0.03), rgba(255,191,71,0));}
-.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:#111;color:#fff;text-decoration:none;font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{border:1px solid #eee;border-radius:10px;padding:12px;background:#fff}
-</style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hotel Towel — SVV Exports</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fffbe9; color: #222; }
+    header { background: #ffbf47; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 20px; margin: 0; }
+    nav a { margin: 0 10px; text-decoration: none; color: #000; font-weight: bold; }
+    main { padding: 20px; max-width: 900px; margin: auto; text-align: center; }
+    img { max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    footer { background: #fff5cc; text-align: center; padding: 15px; font-size: 14px; margin-top: 20px; }
+  </style>
 </head>
 <body>
-<header class="header"><div class="container"><div class="logo"><img src="logo.png" alt="SVV logo"></div><nav><a href="index.html">Home</a><a href="products.html">Products</a><a href="booking.html">Booking / Order</a></nav></div></header>
-<div class="cat-banner"><div class="cat-item" data-href="hotel-bed-sheet.html" data-key="hotel-bed-sheet">Hotel Bed Sheet</div><div class="cat-item" data-href="hotel-duvet-cover.html" data-key="hotel-duvet-cover">Hotel Duvet Cover</div><div class="cat-item" data-href="hotel-duvet.html" data-key="hotel-duvet">Hotel Duvet</div><div class="cat-item" data-href="hotel-towel.html" data-key="hotel-towel">Hotel Towel</div><div class="cat-item" data-href="hotel-bed-runner.html" data-key="hotel-bed-runner">Hotel Bed Runner</div><div class="cat-item" data-href="hotel-pillow.html" data-key="hotel-pillow">Hotel Pillow</div></div>
-<main>
-<h1>Hotel Towel</h1><p>Bath towels, hand towels, pool towels.</p>
-
-</main>
-<footer>
-  <div style="max-width:1100px;margin:0 auto;padding:12px 20px;text-align:center">
-    © SVV Exports &amp; Imports Pvt LTD — Quality Linen and uniform supplier
-  </div>
-</footer>
-
-<script>
-// set active banner item (if present)
-function setActiveBanner(label){
-  document.querySelectorAll('.cat-item').forEach(it=>it.classList.remove('active'));
-  const el = document.querySelector('.cat-item[data-key="'+label+'"]');
-  if(el) el.classList.add('active');
-}
-// attach banner behavior to navigate to page paths
-document.addEventListener('DOMContentLoaded', ()=>{
-  document.querySelectorAll('.cat-item').forEach(it=>{
-    it.addEventListener('click', ()=>{
-      const href = it.dataset.href;
-      if(href) window.location.href = href;
-    });
-  });
-});
-</script>
-
-<script>document.addEventListener('DOMContentLoaded',()=>{ setTimeout(()=>setActiveBanner('hotel-towel'),80); });</script>
+  <header>
+    <h1>SVV Exports & Imports Pvt LTD</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="booking.html">Booking / Order</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Hotel Towel</h2>
+    <img src="assets/images/hotel-towel.jpg" alt="Hotel Towel">
+    <p>Explore our finest collection of hotel towel designed for comfort, quality, and elegance in every hospitality setting.</p>
+  </main>
+  <footer>© SVV Exports & Imports Pvt LTD — Quality Linen and Uniform Supplier</footer>
 </body>
 </html>
